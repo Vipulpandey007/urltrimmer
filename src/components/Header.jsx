@@ -9,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import { ModeToggle } from "./mode-toggle";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -18,8 +19,10 @@ const Header = () => {
       <Link to="/">
         <img src="/logo.png" className="h-16" alt="Url Shortner logo" />
       </Link>
-
-      <div>
+      <div className="flex">
+        <div className="mx-4">
+          <ModeToggle />
+        </div>
         {!user ? (
           <Button onClick={() => navigate("/auth")}>Login</Button>
         ) : (
