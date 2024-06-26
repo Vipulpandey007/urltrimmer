@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase, { supabaseUrl } from "./supabase";
 
 export async function getUrls(user_id) {
   const { data, error } = await supabase
@@ -19,6 +19,41 @@ export async function deleteUrl(id) {
   if (error) {
     console.error(error.message);
     throw new Error("Unable to Delete");
+  }
+  return data;
+}
+
+export async function CreateUrl(
+  { title, longUrl, customUrl, user_id },
+  qrcode
+) {
+  const short_url = Math.random().toString(36).substr(2, 6);
+  const fileName = `qr-${short_url}`;
+  const { error: storageError } = await supabase.storage
+    .from("qr_code")
+    .upload(fileName, qrcode);
+
+  if (storageError) throw new Error(storageError.message);
+
+  const qr = `${supabaseUrl}/storage/v1/object/public/qr_code/${fileName}`;
+
+  const { data, error } = await supabase
+    .from("urls")
+    .insert([
+      {
+        title,
+        user_id,
+        original_url: longUrl,
+        custom_url: customUrl || null,
+        short_url,
+        qr,
+      },
+    ])
+    .select();
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Error creating short url");
   }
   return data;
 }
