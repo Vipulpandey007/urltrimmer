@@ -4,7 +4,7 @@ import { getClicksForUrl } from "@/db/apiClicks";
 import { deleteUrl, getUrl } from "@/db/apiUrl";
 import useFetch from "@/hooks/useFetch";
 import { Copy, Download, LinkIcon, Trash } from "lucide-react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BarLoader, BeatLoader } from "react-spinners";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -123,6 +123,7 @@ const Link = () => {
             alt="qr code"
           />
         </div>
+
         <Card className="sm:w-3/5">
           <CardHeader>
             <CardTitle className="text-4xl font-extrabold">Stats</CardTitle>
