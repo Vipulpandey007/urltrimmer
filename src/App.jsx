@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createHashRouter,
+} from "react-router-dom";
 import "./App.css";
 import AppLayout from "./layouts/app-layout";
 import HomePage from "./pages/home";
@@ -9,7 +13,7 @@ import RedirectLink from "./pages/redirect-link";
 import UrlProvider from "./context";
 import RequireAuth from "./components/requireAuth";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     element: <AppLayout />,
     children: [
