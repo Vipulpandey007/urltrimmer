@@ -70,11 +70,11 @@ const Link = () => {
             {url?.title}
           </span>
           <a
-            href={`https://vipulpandey007.github.io/${link}`}
+            href={`https://urltrimmer.vercel.app/${link}`}
             target="_blank"
             className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
-            https://vipulpandey007.github.io/{link}
+            https://urltrimmer.vercel.app/{link}
           </a>
           <a
             href={url?.original_url}
@@ -92,7 +92,7 @@ const Link = () => {
               variant="ghost"
               onClick={() =>
                 navigator.clipboard.writeText(
-                  `https://vipulpandey007.github.io/${link}`
+                  `https://urltrimmer.vercel.app/${link}`
                 )
               }
             >

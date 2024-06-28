@@ -31,7 +31,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url?.title}
         </span>
         <span className="text-2xl text-blue-400 font-bold hover:underline cursor-pointer">
-          https://vipulpandey007.github.io/
+          https://urltrimmer.vercel.app/
           {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
         <span className="flex items-center gap-1 hover:underline cursor-pointer">
@@ -47,7 +47,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           variant="ghost"
           onClick={() =>
             navigator.clipboard.writeText(
-              `https://vipulpandey007.github.io/${url?.short_url}`
+              `https://urltrimmer.vercel.app/${url?.short_url}`
             )
           }
         >
