@@ -10,6 +10,7 @@ import { BarLoader, BeatLoader } from "react-spinners";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import DeviceStats from "@/components/Devicestats";
 import Location from "@/components/Location";
+import Updatelinks from "@/components/updatelinks";
 
 const Link = () => {
   const { user } = UrlState();
@@ -115,6 +116,13 @@ const Link = () => {
               ) : (
                 <Trash />
               )}
+            </Button>
+            <Button variant="ghost">
+              <Updatelinks
+                title={url?.title}
+                original={url?.original_url}
+                id={url?.id}
+              />
             </Button>
           </div>
           <img

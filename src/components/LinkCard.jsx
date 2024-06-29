@@ -63,13 +63,13 @@ const LinkCard = ({ url, fetchUrls }) => {
         >
           {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
         </Button>
-        {/* <Button variant="ghost">
+        <Button variant="ghost">
           <Updatelinks
             title={url?.title}
             original={url?.original_url}
             id={url?.id}
           />
-        </Button> */}
+        </Button>
       </div>
     </div>
   );

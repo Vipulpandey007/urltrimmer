@@ -20,6 +20,7 @@ import { BeatLoader } from "react-spinners";
 
 const Updatelinks = ({ title, original, id }) => {
   const navigate = useNavigate();
+
   const [errors, setErrors] = useState({});
   const [formValues, setFormValues] = useState({
     title: title,
@@ -51,7 +52,7 @@ const Updatelinks = ({ title, original, id }) => {
 
   useEffect(() => {
     if (error === null && data) {
-      // navigate(`/link/${data[0].id}`);
+      navigate(`/link/${data[0].id}`);
     }
   }, [error, data]);
 
@@ -59,7 +60,6 @@ const Updatelinks = ({ title, original, id }) => {
     setErrors([]);
     try {
       await schema.validate(formValues, { abortEarly: false });
-
       await fnUpdateUrl();
     } catch (e) {
       const newErrors = {};
@@ -80,9 +80,7 @@ const Updatelinks = ({ title, original, id }) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="font-bold text-2xl">
-            Update Link <Error message="Only ui of update is completed" />
-          </DialogTitle>
+          <DialogTitle className="font-bold text-2xl">Update Link</DialogTitle>
         </DialogHeader>
         <Input
           id="title"

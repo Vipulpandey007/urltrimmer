@@ -88,7 +88,6 @@ export async function CreateUrl(
 }
 
 export async function UpdateUrl({ title, longUrl, customUrl, id }) {
-  console.log(id);
   const { data, error } = await supabase
     .from("urls")
     .update([
@@ -98,7 +97,8 @@ export async function UpdateUrl({ title, longUrl, customUrl, id }) {
         custom_url: customUrl || null,
       },
     ])
-    .eq("id", id);
+    .eq("id", id)
+    .select();
   if (error) {
     console.error(error.message);
     throw new Error("Error Updating short url");
