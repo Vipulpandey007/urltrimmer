@@ -1,10 +1,10 @@
 import { Copy, Download, LinkIcon, Trash } from "lucide-react";
-import React from "react";
 import { Link } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 import { Button } from "./ui/button";
 import useFetch from "@/hooks/useFetch";
 import { deleteUrl } from "@/db/apiUrl";
+import Updatelinks from "./updatelinks";
 
 const LinkCard = ({ url, fetchUrls }) => {
   const downloadImage = () => {
@@ -63,6 +63,13 @@ const LinkCard = ({ url, fetchUrls }) => {
         >
           {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
         </Button>
+        {/* <Button variant="ghost">
+          <Updatelinks
+            title={url?.title}
+            original={url?.original_url}
+            id={url?.id}
+          />
+        </Button> */}
       </div>
     </div>
   );

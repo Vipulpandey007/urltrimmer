@@ -86,3 +86,22 @@ export async function CreateUrl(
   }
   return data;
 }
+
+export async function UpdateUrl({ title, longUrl, customUrl, id }) {
+  console.log(id);
+  const { data, error } = await supabase
+    .from("urls")
+    .update([
+      {
+        title: title,
+        original_url: longUrl,
+        custom_url: customUrl || null,
+      },
+    ])
+    .eq("id", id);
+  if (error) {
+    console.error(error.message);
+    throw new Error("Error Updating short url");
+  }
+  return data;
+}
