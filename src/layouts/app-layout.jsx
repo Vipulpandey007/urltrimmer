@@ -12,8 +12,8 @@ const AppLayout = () => {
           {/* Body */}
           <Outlet />
         </main>
-        <div className="p-10 text-center dark:bg-gray-900 bg-gray-400 mt-10">
-          Developed By Vipul
+        <div className="p-5 text-center dark:bg-gray-900 bg-white border mt-10">
+          <span className="text-2xl font-semibold">Developed By Vipul</span>
         </div>
       </div>
     </ThemeProvider>
